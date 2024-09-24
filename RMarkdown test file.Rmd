@@ -25,7 +25,20 @@ data(mtcars)
 head(mtcars)
 summary(mtcars)
 ```
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+car_price = read.csv("CarPrice.csv")
+library(ggplot2)
+library(reshape2)
+library(gridExtra)
 
+# Creating a boxplot of 'symboling'
+p1 = ggplot(data = car_price, aes(x = factor(1), y = symboling)) + 
+    geom_boxplot(fill = "lightblue", color = "darkblue") +
+    labs(title = "Boxplot of symboling", x = "", y = "Symboling") +
+    theme_minimal() +
+    theme(axis.text.x = element_blank()) # Remove x-axis labels as they are unnecessary
+```
 
 
 
